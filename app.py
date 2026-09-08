@@ -10,6 +10,7 @@ load_dotenv()
 
 try:
     connection=psycopg2.connect(os.getenv('DB_URL'))
+    connection.autocommit=True
     cursor = connection.cursor()
 
     sql="""create table if not exists todo_list(
